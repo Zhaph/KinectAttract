@@ -1,0 +1,108 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	mc:Ignorable="d"
+	x:Class="KinectAttract.Eyes"
+	x:Name="UserControl"
+	d:DesignWidth="151" d:DesignHeight="40">
+	<UserControl.Resources>
+		<Storyboard x:Key="Blink">
+			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.VerticalAlignment)" Storyboard.TargetName="LeftEye">
+				<DiscreteObjectKeyFrame KeyTime="0:0:0.3" Value="{x:Static VerticalAlignment.Center}"/>
+				<DiscreteObjectKeyFrame KeyTime="0:0:0.6" Value="{x:Static VerticalAlignment.Stretch}"/>
+			</ObjectAnimationUsingKeyFrames>
+			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.VerticalAlignment)" Storyboard.TargetName="RightEye">
+				<DiscreteObjectKeyFrame KeyTime="0:0:0.3" Value="{x:Static VerticalAlignment.Center}"/>
+				<DiscreteObjectKeyFrame KeyTime="0:0:0.6" Value="{x:Static VerticalAlignment.Stretch}"/>
+			</ObjectAnimationUsingKeyFrames>
+			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.VerticalAlignment)" Storyboard.TargetName="LeftPupil">
+				<DiscreteObjectKeyFrame KeyTime="0:0:0.3" Value="{x:Static VerticalAlignment.Center}"/>
+				<DiscreteObjectKeyFrame KeyTime="0:0:0.6" Value="{x:Static VerticalAlignment.Stretch}"/>
+			</ObjectAnimationUsingKeyFrames>
+			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(FrameworkElement.VerticalAlignment)" Storyboard.TargetName="RightPupil">
+				<DiscreteObjectKeyFrame KeyTime="0:0:0.3" Value="{x:Static VerticalAlignment.Center}"/>
+				<DiscreteObjectKeyFrame KeyTime="0:0:0.6" Value="{x:Static VerticalAlignment.Stretch}"/>
+			</ObjectAnimationUsingKeyFrames>
+			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="RightPupil">
+				<DiscreteObjectKeyFrame KeyTime="0:0:0.3" Value="{x:Static Visibility.Hidden}"/>
+				<DiscreteObjectKeyFrame KeyTime="0:0:0.6" Value="{x:Static Visibility.Visible}"/>
+			</ObjectAnimationUsingKeyFrames>
+			<ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="LeftPupil">
+				<DiscreteObjectKeyFrame KeyTime="0:0:0.3" Value="{x:Static Visibility.Hidden}"/>
+				<DiscreteObjectKeyFrame KeyTime="0:0:0.6" Value="{x:Static Visibility.Visible}"/>
+			</ObjectAnimationUsingKeyFrames>
+		</Storyboard>
+		<Storyboard x:Key="LookAround">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="LeftPupil">
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="-8"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3" Value="6"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:4" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="RightPupil">
+				<EasingDoubleKeyFrame KeyTime="0:0:1" Value="-6"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:2" Value="0"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3" Value="8"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:4" Value="0"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.StrokeThickness)" Storyboard.TargetName="LeftPupil">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="6"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3.5" Value="6"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:4" Value="5"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.StrokeThickness)" Storyboard.TargetName="RightPupil">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="6"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:3.5" Value="6"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:4" Value="5"/>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+		<Storyboard x:Key="Focus">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.StrokeThickness)" Storyboard.TargetName="LeftPupil">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="4"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.StrokeThickness)" Storyboard.TargetName="RightPupil">
+				<EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="4"/>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+		<Storyboard x:Key="LoseFocus">
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.StrokeThickness)" Storyboard.TargetName="LeftPupil">
+				<EasingDoubleKeyFrame KeyTime="0" Value="4"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="5"/>
+			</DoubleAnimationUsingKeyFrames>
+			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.StrokeThickness)" Storyboard.TargetName="RightPupil">
+				<EasingDoubleKeyFrame KeyTime="0" Value="4"/>
+				<EasingDoubleKeyFrame KeyTime="0:0:0.7" Value="5"/>
+			</DoubleAnimationUsingKeyFrames>
+		</Storyboard>
+	</UserControl.Resources>
+	<UserControl.Triggers>
+		<EventTrigger RoutedEvent="FrameworkElement.Loaded"/>
+	</UserControl.Triggers>
+
+	<Grid x:Name="LayoutRoot">
+		<Ellipse x:Name="LeftEye" Stroke="Black" StrokeThickness="4" Fill="White" Margin="0,0,101,0"/>
+		<Ellipse x:Name="LeftPupil" Fill="Black" Stroke="#FF8F5604" StrokeThickness="5" Margin="15,10,116,10" RenderTransformOrigin="0.5,0.5">
+			<Ellipse.RenderTransform>
+				<TransformGroup>
+					<ScaleTransform/>
+					<SkewTransform/>
+					<RotateTransform/>
+					<TranslateTransform/>
+				</TransformGroup>
+			</Ellipse.RenderTransform>
+		</Ellipse>
+		<Ellipse x:Name="RightEye" Stroke="Black" StrokeThickness="4" Fill="White" Margin="101,0,0,0"/>
+		<Ellipse x:Name="RightPupil" Fill="Black" Stroke="#FF8F5604" StrokeThickness="5" Margin="116,10,15,10" RenderTransformOrigin="0.5,0.5">
+			<Ellipse.RenderTransform>
+				<TransformGroup>
+					<ScaleTransform/>
+					<SkewTransform/>
+					<RotateTransform/>
+					<TranslateTransform/>
+				</TransformGroup>
+			</Ellipse.RenderTransform>
+		</Ellipse>
+	</Grid>
+</UserControl>
