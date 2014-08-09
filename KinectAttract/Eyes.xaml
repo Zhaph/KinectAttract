@@ -58,7 +58,7 @@
 				<EasingDoubleKeyFrame KeyTime="0:0:4" Value="5"/>
 			</DoubleAnimationUsingKeyFrames>
 		</Storyboard>
-		<Storyboard x:Key="Focus">
+		<Storyboard x:Key="GainFocus">
 			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.StrokeThickness)" Storyboard.TargetName="LeftPupil">
 				<EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="4"/>
 			</DoubleAnimationUsingKeyFrames>

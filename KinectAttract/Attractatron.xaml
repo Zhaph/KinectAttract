@@ -9,7 +9,6 @@
 	x:Name="UserControl"
 	d:DesignWidth="230" d:DesignHeight="251">
 	<UserControl.Resources>
-		<Storyboard x:Key="AttractatronStoryBoard"/>
 		<Storyboard x:Key="Hey">
 			<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="Mouth">
 				<EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="3"/>
@@ -39,9 +38,6 @@
 	</UserControl.Resources>
 	<UserControl.Triggers>
 		<EventTrigger RoutedEvent="FrameworkElement.Loaded">
-			<BeginStoryboard Storyboard="{StaticResource AttractatronStoryBoard}"/>
-			<BeginStoryboard Storyboard="{StaticResource Hey}"/>
-			<BeginStoryboard Storyboard="{StaticResource You}"/>
 		</EventTrigger>
 	</UserControl.Triggers>
 
@@ -55,7 +51,7 @@
 				</RadialGradientBrush>
 			</Ellipse.Fill>
 		</Ellipse>
-		<local:Eyes Margin="39,85,40,126"/>
+		<local:Eyes Margin="39,85,40,126" />
 		<Path x:Name="Nose" Data="M311.49987,170.50003 C342.99875,222.00003 307.50011,220.50056 307.50011,220.50056" Stretch="Fill" Stroke="#FF8F5604" StrokeThickness="5" Margin="110.5,95,97.466,100.995"/>
 		<Ellipse x:Name="Mouth" Stroke="#FF8F1704" StrokeThickness="2" Margin="62,187,64,53" RenderTransformOrigin="0.5,0.5">
 			<Ellipse.RenderTransform>
