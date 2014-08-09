@@ -18,6 +18,29 @@ namespace KinectAttract
 	/// </summary>
 	public partial class Attractatron : UserControl
 	{
+	  public void LookForUser()
+	  {
+      // Search around looking for someone to talk to...
+	    Eyes.LookAround();
+	  }
+
+	  public void FoundUser()
+	  {
+      // "Hey! Hey, you!"
+	  }
+
+	  public void GainInterest()
+	  {
+      // Dilate pupils, we're interested...
+	    Eyes.FoundPerson();
+	  }
+
+	  public void LooseInterest()
+	  {
+      // Meh, they've wandered off...
+	    Eyes.LostPerson();
+	  }
+
 		public Attractatron()
 		{
 			this.InitializeComponent();

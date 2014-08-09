@@ -24,5 +24,25 @@ namespace KinectAttract
     {
       InitializeComponent();
     }
+
+    private void Hunt_Click(object sender, RoutedEventArgs e)
+    {
+      Attractor.LookForUser();
+    }
+
+    private void Found_Click(object sender, RoutedEventArgs e)
+    {
+      Attractor.FoundUser();
+    }
+
+    private void Engage_Click(object sender, RoutedEventArgs e)
+    {
+      Attractor.GainInterest();
+    }
+
+    private void Disengage_Click(object sender, RoutedEventArgs e)
+    {
+      Attractor.LooseInterest();
+    }
   }
 }

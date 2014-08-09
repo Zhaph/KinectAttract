@@ -3,7 +3,13 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:KinectAttract" x:Class="KinectAttract.MainWindow"
         Title="MainWindow" Height="700" Width="650">
-	<Canvas Margin="0,0,2,0">
-		<local:Attractatron Height="251" Canvas.Left="196" Canvas.Top="68" Width="230"/>
-	</Canvas>
+	<Canvas Margin="0,0,0,0">
+		<local:Attractatron x:Name="Attractor" Height="251" Canvas.Left="196" Canvas.Top="68" Width="230"/>
+    <StackPanel Canvas.Left="20" Canvas.Top="500" Width="600" Orientation="Horizontal">
+      <Button Content="Hunt" Width="75" Click="Hunt_Click"/>
+      <Button Content="Found" Margin="10, 0" Width="75" Click="Found_Click" />
+      <Button Content="Engage" Width="75" Click="Engage_Click" />
+      <Button Content="Disengage" Margin="10,0" Width="75" Click="Disengage_Click" />
+    </StackPanel>
+  </Canvas>
 </Window>

@@ -28,7 +28,7 @@ namespace KinectAttract
     private Storyboard _lookAroundStoryboard;
     private bool _looking = false;
 
-    public void HuntForPerson()
+    public void LookAround()
     {
       if (null != _lookAroundStoryboard)
       {
@@ -38,12 +38,27 @@ namespace KinectAttract
       }
     }
 
-    public void FoundPerson(Object sender, RoutedEventArgs e)
+    public void FoundPerson()
     {
+      _looking = false;
       var gainFocus = this.FindResource("GainFocus") as Storyboard;
-      if (gainFocus != null) BeginStoryboard(gainFocus);
+      if (gainFocus != null)
+      {
+        gainFocus.Begin();
+      }
     }
 
+    public void LostPerson()
+    {
+      _looking = false;
+      var loseFocus = this.FindResource("LoseFocus") as Storyboard;
+
+      if (loseFocus != null)
+      {
+        loseFocus.Begin();
+        LookAround();
+      }
+    }
 
     public Eyes()
 		{
@@ -87,12 +102,13 @@ namespace KinectAttract
       if (_looking)
       {
         _lookAroundStoryboard.Begin();
-        _lookAroundTimer.Interval = nextHunt();
       }
       else
       {
         _lookAroundTimer.Stop();
       }
+
+      _lookAroundTimer.Interval = nextHunt();
     }
 
     private TimeSpan nextHunt()
