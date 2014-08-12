@@ -36,7 +36,7 @@ namespace KinectAttract
   ///   Interaction logic for MainWindow.xaml
   /// </summary>
   /// <remarks>
-  ///   Based on the example "KinectFaceTrackingDeom" from rarcher software
+  ///   Based on the example "KinectFaceTrackingDemo" from rarcher software
   ///   (http://rarcher.azurewebsites.net/Post/PostContent/44)
   /// </remarks>
   public partial class MainWindow : Window, INotifyPropertyChanged
