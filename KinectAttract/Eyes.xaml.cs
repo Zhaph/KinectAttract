@@ -94,7 +94,7 @@ namespace KinectAttract
 
     private TimeSpan nextBlink()
     {
-      return new TimeSpan(0, 0, _interval.Next(5, 12));
+      return new TimeSpan(0, 0, _interval.Next(2, 8));
     }
 
     private void goHunting(object sender, EventArgs e)
