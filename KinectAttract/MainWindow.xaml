@@ -3,13 +3,49 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:KinectAttract" x:Class="KinectAttract.MainWindow"
         Title="MainWindow" Height="700" Width="650">
-	<Canvas Margin="0,0,0,0">
-		<local:Attractatron x:Name="Attractor" Height="251" Canvas.Left="196" Canvas.Top="68" Width="230"/>
-    <StackPanel Canvas.Left="20" Canvas.Top="500" Width="600" Orientation="Horizontal">
-      <Button Content="Hunt" Width="75" Click="Hunt_Click"/>
-      <Button Content="Found" Margin="10, 0" Width="75" Click="Found_Click" />
-      <Button Content="Engage" Width="75" Click="Engage_Click" />
-      <Button Content="Disengage" Margin="10,0" Width="75" Click="Disengage_Click" />
+  <Canvas Margin="0,0,0,0">
+    <local:Attractatron x:Name="Attractor" Height="251" Canvas.Left="196" Canvas.Top="68" Width="230"/>
+    <StackPanel Canvas.Left="20" Canvas.Top="350">
+      <StackPanel Width="600" Orientation="Horizontal">
+        <Button Width="75" Click="Hunt_Click" HorizontalContentAlignment="Left">
+          <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+            <Rectangle x:Name="HuntStatus" DockPanel.Dock="Left" Fill="#FFF4F4F5" Height="20" Margin="1, 0, 5, 0" Stroke="Black" Width="20" HorizontalAlignment="Right"/>
+            <TextBlock DockPanel.Dock="Right">Hunt</TextBlock>
+          </StackPanel>
+        </Button>
+        <Button Margin="10, 0" Width="75" Click="Found_Click" HorizontalContentAlignment="Left">
+          <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+            <Rectangle x:Name="FoundStatus" DockPanel.Dock="Left" Fill="#FFF4F4F5" Height="20" Margin="1, 0, 5, 0" Stroke="Black" Width="20" HorizontalAlignment="Right"/>
+            <TextBlock TextAlignment="Center" HorizontalAlignment="Center">Found</TextBlock>
+          </StackPanel>
+        </Button>
+        <Button Width="75" Click="Engage_Click" HorizontalContentAlignment="Left">
+          <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+            <Rectangle x:Name="EngageStatus" DockPanel.Dock="Left" Fill="#FFF4F4F5" Height="20" Margin="1, 0, 5, 0" Stroke="Black" Width="20" HorizontalAlignment="Right"/>
+            <TextBlock TextAlignment="Center" HorizontalAlignment="Center">Engage</TextBlock>
+          </StackPanel>
+        </Button>
+        <Button Margin="10,0" Width="95" Click="Disengage_Click" HorizontalContentAlignment="Left">
+          <StackPanel Orientation="Horizontal" HorizontalAlignment="Stretch">
+            <Rectangle x:Name="DisengageStatus" DockPanel.Dock="Left" Fill="#FFF4F4F5" Height="20" Margin="1, 0, 5, 0" Stroke="Black" Width="20" HorizontalAlignment="Right"/>
+            <TextBlock TextAlignment="Center" HorizontalAlignment="Center">Disengage</TextBlock>
+          </StackPanel>
+        </Button>
+      </StackPanel>
+      <StackPanel Width="600" Orientation="Horizontal">
+        <Label Content="Number of tracked bodies:"/>
+        <Label Content="0" x:Name="TrackedBodyCount" />
+      </StackPanel>
+      <StackPanel Width="600" Orientation="Horizontal">
+        <Label Content="Body Ids:"/>
+        <Label x:Name="TrackedBodyIds" />
+      </StackPanel>
+      <StackPanel Width="600" Orientation="Horizontal">
+        <Label Content="Tracking Status:"/>
+        <Label x:Name="TrackedStatus" />
+      </StackPanel>
     </StackPanel>
+    <Image x:Name="KinectColourImage" Width="320" Height="180" Canvas.Left="165" Canvas.Top="470"></Image>
+    <Canvas x:Name="BodyCanvas" Width="320" Height="180" Canvas.Left="165" Canvas.Top="470"></Canvas>
   </Canvas>
 </Window>
