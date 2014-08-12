@@ -4,10 +4,8 @@ using System.Diagnostics;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using KinectAttract.Annotations;
 using KinectAttract.Helpers;
 using Microsoft.Kinect;
@@ -109,7 +107,7 @@ namespace KinectAttract
     public event PropertyChangedEventHandler PropertyChanged;
 
     /// <summary>Setup the Kinect device</summary>
-    private async void initKinect()
+    private void initKinect()
     {
       try
       {
@@ -181,8 +179,6 @@ namespace KinectAttract
           }
 
           bodyFrame.GetAndRefreshBodyData(_bodies);
-
-          int i = 0;
 
           TrackedBodyCount.Content = _bodies.Count(b => b.IsTracked);
           var bodyIds = _bodies.Where(b=> b.IsTracked).Select(b => new {b.TrackingId}).ToList();
@@ -413,14 +409,6 @@ namespace KinectAttract
       }
 
       _faceFrameSource = null;
-
-      if (_bodies != null)
-      {
-        foreach (Body body in _bodies.Where(body => body != null))
-        {
-//          body.Dispose();
-        }
-      }
 
       _videoBitmap = null;
 

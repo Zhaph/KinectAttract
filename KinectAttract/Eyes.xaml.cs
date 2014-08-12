@@ -1,32 +1,33 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading;
-using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Animation;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Windows.Threading;
 
 namespace KinectAttract
 {
   /// <summary>
-  /// Interaction logic for Eyes.xaml
+  ///   Interaction logic for Eyes.xaml
   /// </summary>
   public partial class Eyes : UserControl
   {
     private readonly DispatcherTimer _blinkTimer = new DispatcherTimer();
-    private readonly DispatcherTimer _lookAroundTimer = new DispatcherTimer();
     private readonly Random _interval = new Random();
+    private readonly DispatcherTimer _lookAroundTimer = new DispatcherTimer();
     private Storyboard _blinkStoryboard;
     private Storyboard _lookAroundStoryboard;
-    private bool _looking = false;
+    private bool _looking;
+
+    public Eyes()
+    {
+      InitializeComponent();
+
+      setupTimersForStoryBoards();
+
+      if (null != _blinkStoryboard)
+      {
+        _blinkTimer.Start();
+      }
+    }
 
     public void LookAround()
     {
@@ -41,7 +42,7 @@ namespace KinectAttract
     public void FoundPerson()
     {
       _looking = false;
-      var gainFocus = this.FindResource("GainFocus") as Storyboard;
+      var gainFocus = FindResource("GainFocus") as Storyboard;
       if (gainFocus != null)
       {
         gainFocus.Begin();
@@ -51,7 +52,7 @@ namespace KinectAttract
     public void LostPerson()
     {
       _looking = false;
-      var loseFocus = this.FindResource("LoseFocus") as Storyboard;
+      var loseFocus = FindResource("LoseFocus") as Storyboard;
 
       if (loseFocus != null)
       {
@@ -59,18 +60,6 @@ namespace KinectAttract
         LookAround();
       }
     }
-
-    public Eyes()
-		{
-			this.InitializeComponent();
-
-      setupTimersForStoryBoards();
-
-      if (null != _blinkStoryboard)
-      {
-        _blinkTimer.Start();
-      }
-		}
 
     private void setupTimersForStoryBoards()
     {

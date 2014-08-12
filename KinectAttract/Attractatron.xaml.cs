@@ -1,49 +1,38 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using System.Windows.Controls;
 
 namespace KinectAttract
 {
-	/// <summary>
-	/// Interaction logic for Attractatron.xaml
-	/// </summary>
-	public partial class Attractatron : UserControl
-	{
-	  public void LookForUser()
-	  {
+  /// <summary>
+  ///   Interaction logic for Attractatron.xaml
+  /// </summary>
+  public partial class Attractatron : UserControl
+  {
+    public Attractatron()
+    {
+      InitializeComponent();
+    }
+
+    public void LookForUser()
+    {
       // Search around looking for someone to talk to...
-	    Eyes.LookAround();
-	  }
+      Eyes.LookAround();
+    }
 
-	  public void FoundUser()
-	  {
+    public void FoundUser()
+    {
       // "Hey! Hey, you!"
-	  }
+    }
 
-	  public void GainInterest()
-	  {
+    public void GainInterest()
+    {
       // Dilate pupils, we're interested...
-	    Eyes.FoundPerson();
-	  }
+      Eyes.FoundPerson();
+    }
 
-	  public void LooseInterest()
-	  {
+    public void LooseInterest()
+    {
       // Meh, they've wandered off...
-	    Eyes.LostPerson();
-	  }
-
-		public Attractatron()
-		{
-			this.InitializeComponent();
-		}
-	}
+      Eyes.LostPerson();
+    }
+  }
 }
