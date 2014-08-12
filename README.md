@@ -5,7 +5,7 @@ Prototype Kinect app to attract people to come and interact with something
 
 Built on top of the Kinect for Windows V2 API.
 
-Based on the example "KinectFaceTrackingDemo" from [rarcher software](http://rarcher.azurewebsites.net/Post/PostContent/44)
+Based on the example "KinectFaceTrackingDemo" from [RArcher Software](http://rarcher.azurewebsites.net/Post/PostContent/44)
 
 
 Current Features
